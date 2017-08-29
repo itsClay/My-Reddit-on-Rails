@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     )
     if user
       login(user)
-      # redirect_to ??????
+      redirect_to subs_url
     else
       flash[:errors] = ['Invalid login credentials']
       rander :new

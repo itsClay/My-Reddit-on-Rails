@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def logout
     current_user.try(:reset_session_token!)
     session[:session_token] = nil
-    redirect_to new_session_url
+    redirect_to subs_url
   end
 
   def flash_errors(obj)

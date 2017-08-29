@@ -1,2 +1,8 @@
-<h1>Subs#index</h1>
-<p>Find me in app/views/subs/index.html.erb</p>
+<h1>Subs</h1>
+
+<%= link_to 'New Sub', new_sub_url %>
+<% @subs.each do |sub| %>
+  <ul>
+    <li><%= link_to sub.title.truncate(40), sub_url(sub.id) %></li>
+  </ul>
+<% end %>
