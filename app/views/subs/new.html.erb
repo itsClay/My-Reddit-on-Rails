@@ -1,8 +1,8 @@
+<%= link_to 'Back', subs_url %>
+
 <h1>New Sub</h1>
 
-<%= link_to 'Subs', subs_url %>
-
-<form class="" action="<%= subs_url(@sub) %>" method="post">
+<form class="" action="<%= subs_url %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
   <label>Title

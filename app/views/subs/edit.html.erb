@@ -12,5 +12,22 @@
     <input type="text" name="sub[description]" value="<%= @sub.description %>">
   </label>
 
+  <input type="hidden" name="sub[post_ids][]" value="">
+
+  <% Post.all.each do |post| %>
+    <ul>
+      <li>
+        <label><%= post.title %>
+          <input
+            type="checkbox"
+            name="sub[post_ids][]"
+            value="<%= post.id %>"
+            <%= "checked" if @sub.post_ids.include?(post.id) %>
+          />
+        </label>
+      </li>
+    </ul>
+  <% end %>
+
   <input type="submit" name="" value="Update Sub">
 </form>

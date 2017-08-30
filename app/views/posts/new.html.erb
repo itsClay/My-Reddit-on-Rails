@@ -1,0 +1,37 @@
+<%= link_to 'Back',  sub_url(params[:sub_id])%>
+
+<h1>New Post</h1>
+<form action="<%= sub_posts_url(params[:sub_id]) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="post[title]" value="">
+  </label>
+
+  <label>URL
+    <input type="text" name="post[url]" value="">
+  </label>
+
+  <label>content
+    <input type="text" name="post[content]" value="">
+  </label>
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+  <% Sub.all.each do |sub| %>
+    <ul>
+      <li>
+        <label><%= sub.title %>
+          <input
+            type="checkbox"
+            name="post[sub_ids][]"
+            value="<%= sub.id %>"
+            <%= "checked" if @post.sub_ids.include?(sub.id) %>
+          />
+        </label>
+      </li>
+    </ul>
+  <% end %>
+
+  <input type="submit" name="" value="Make Post">
+</form>
